@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -37,7 +38,7 @@ class CoreController extends Controller
 
         return response()->json([
             'message' => 'Invalid credentials',
-        ], 401);
+        ], Response::HTTP_UNAUTHORIZED);
     }
 
     public function signup(Request $request): JsonResponse
@@ -56,7 +57,7 @@ class CoreController extends Controller
 
         return response()->json([
             'message' => 'Conta criada com sucesso! 🎉',
-        ], 201);
+        ], Response::HTTP_CREATED);
     }
 
     public function resetPassword(Request $request): JsonResponse
@@ -71,6 +72,6 @@ class CoreController extends Controller
 
         return response()->json([
             'message' => 'Mudança de Senha com sucesso! 🎉',
-        ], 201);
+        ], Response::HTTP_CREATED);
     }
 }

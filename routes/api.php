@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CoreController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('core')->group(function () {
@@ -13,4 +14,9 @@ Route::prefix('core')->group(function () {
 });
 
 // Somente Grupo ou Rotas Protegidas por Token
-Route::middleware('auth:sanctum')->group(function () {});
+Route::middleware('auth:sanctum')->group(function () {
+
+    Route::prefix('user')->group(function () {
+        Route::put('/', [UserController::class, 'updateUser']);
+    });
+});
