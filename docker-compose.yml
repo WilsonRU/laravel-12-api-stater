@@ -1,5 +1,5 @@
 services:
-  laravel:
+  app:
     image: laradock/php-fpm:latest-8.4
     working_dir: /application
     volumes:
