@@ -20,7 +20,7 @@ class UserController extends Controller
         ]);
 
         return response()->json([
-            'Perfil do usuario atualizado',
+            'Profile updated successfully',
         ], Response::HTTP_ACCEPTED);
     }
 }

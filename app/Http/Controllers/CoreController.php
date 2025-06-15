@@ -24,7 +24,7 @@ class CoreController extends Controller
 
             if (! $user || ! Hash::check($request->password, $user->password)) {
                 throw ValidationException::withMessages([
-                    'email' => ['The provided credentials are incorrect.'],
+                    'email' => ['The provided credentials are incorrect'],
                 ]);
             }
 
@@ -56,7 +56,7 @@ class CoreController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'Conta criada com sucesso! 🎉',
+            'message' => 'User created successfully',
         ], Response::HTTP_CREATED);
     }
 
@@ -71,7 +71,7 @@ class CoreController extends Controller
         ]);
 
         return response()->json([
-            'message' => 'Mudança de Senha com sucesso! 🎉',
+            'message' => 'Password changed successfully',
         ], Response::HTTP_CREATED);
     }
 }
